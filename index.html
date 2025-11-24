@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2D Mine Clone</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="gameCanvas"></canvas>
+
+    <div id="ui-container">
+        <div id="interaction-prompt"></div>
+
+        <div id="title-menu" class="screen">
+            <h2>2D Mine Clone</h2>
+            <button onclick="GAME.startGame('default_seed')">Start New World</button><br><br>
+            <input type="text" id="seedInput" placeholder="World Seed (e.g., 12345)" value="2405"><br><br>
+            <button onclick="alert('Settings not implemented yet')">Settings</button>
+        </div>
+
+        <div id="crafting-ui" class="interface hidden">
+            <h3>Crafting Table (3x3)</h3>
+            <p>2x2 Crafting Not Supported in this simple UI yet.</p>
+            <button onclick="GAME.closeInterfaces()">Close (E)</button>
+        </div>
+
+        <div id="furnace-ui" class="interface hidden">
+            <h3>Furnace (Smelting)</h3>
+            <button onclick="GAME.closeInterfaces()">Close (E)</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
