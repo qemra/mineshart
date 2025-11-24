@@ -1,87 +1,27 @@
-body {
-    margin: 0;
-    overflow: hidden;
-    background-color: #1a1a1a;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    font-family: Arial, sans-serif;
-    color: #333;
-}
+/* ... (Existing CSS) ... */
 
-#gameCanvas {
-    display: block;
-    border: 4px solid #444;
-    background-color: #ADD8E6; /* Sky color */
-}
-
-#ui-container {
+/* Mining Progress Bar Styling */
+#mining-progress {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+    top: 50%; /* Will be repositioned by JS */
+    left: 50%; /* Will be repositioned by JS */
+    width: 32px; /* Same as TILE_SIZE */
+    height: 5px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 1px solid white;
+    box-sizing: border-box;
+    z-index: 100;
+}
+
+#mining-bar {
+    width: 0%;
     height: 100%;
-    pointer-events: none; /* Allows clicks to pass through to canvas if no UI is visible */
+    background-color: #ffcc00; /* Yellow/Orange */
 }
 
-.screen, .interface {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-    pointer-events: all; /* Important: makes buttons clickable */
-}
-
-/* Title Menu Styling */
-#title-menu {
-    width: 400px;
-    background: rgba(0, 0, 0, 0.9);
-    color: white;
-    text-align: center;
-    border: 2px solid #555;
-}
-
-#title-menu button {
-    padding: 10px 20px;
-    margin: 5px;
-    cursor: pointer;
-    background-color: #38761d;
-    color: white;
-    border: none;
-    border-radius: 5px;
-}
-
-#title-menu input {
-    padding: 8px;
+/* Player Model Preview */
+#model-preview {
     border: 1px solid #ccc;
-    border-radius: 4px;
 }
 
-/* Crafting/Furnace UI Styling */
-.interface {
-    width: 300px;
-    background: #C0C0C0;
-    border: 5px solid #8B4513;
-    text-align: center;
-}
-
-.hidden {
-    display: none !important;
-}
-
-#interaction-prompt {
-    position: absolute; 
-    top: 50px; 
-    left: 50%; 
-    transform: translateX(-50%); 
-    color: white; 
-    background: rgba(0,0,0,0.6); 
-    padding: 8px 15px; 
-    border-radius: 5px; 
-    font-size: 1.1em;
-    display: none;
-}
+/* ... (Existing CSS) ... */
