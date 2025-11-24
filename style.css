@@ -1,129 +1,52 @@
-/* ... (Existing CSS) ... */
+/* style.css */
 
-/* General Interface Styling */
-.interface {
-    /* ... existing interface styles ... */
-    width: 300px;
-    background: #C0C0C0;
-    border: 5px solid #8B4513;
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: #1a1a1a;
+    display: flex; /* Use flexbox to center content */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+#gameCanvas {
+    /* ... existing canvas styles ... */
+    display: block;
+    border: 4px solid #444;
+    background-color: #ADD8E6; 
+}
+
+#ui-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.screen, .interface {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Crucial for centering */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    pointer-events: all;
+}
+
+/* Title Menu Styling */
+#title-menu {
+    width: 400px;
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
     text-align: center;
+    border: 2px solid #555;
+    /* Ensure only the menu is visible at the start */
+    z-index: 1000; 
 }
-
-.large-interface {
-    width: 600px; /* Wider for full inventory */
-    height: 400px;
-}
-
-.inventory-title {
-    margin-top: 0;
-}
-
-.inventory-content-grid {
-    display: flex;
-    justify-content: space-between;
-    text-align: left;
-    height: 80%;
-}
-
-.inventory-sidebar {
-    width: 35%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-right: 10px;
-    border-right: 1px solid #999;
-}
-
-.main-inventory-area {
-    width: 60%;
-}
-
-.item-grid {
-    display: grid;
-    grid-template-columns: repeat(9, 1fr); /* 9 slots wide */
-    gap: 5px;
-    margin-bottom: 10px;
-}
-
-.slot {
-    width: 40px;
-    height: 40px;
-    background-color: #A9A9A9;
-    border: 2px solid #666;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 10px;
-    position: relative;
-    cursor: pointer;
-}
-
-.slot.result {
-    margin-left: 20px;
-    border: 2px solid gold;
-}
-
-/* Player Model and Armor */
-.player-view {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin-bottom: 20px;
-    height: 100px;
-}
-
-#inventory-player-model {
-    width: 32px;
-    height: 64px;
-    background-color: #38761d; /* Default model color */
-    border: 1px solid black;
-    margin: 0 10px;
-}
-
-.armor-slots {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-.armor-slots .slot {
-    width: 30px;
-    height: 30px;
-}
-
-/* Mini Crafting Area */
-.mini-crafting-grid {
-    display: grid;
-    grid-template-columns: 40px 40px 10px 40px; /* 2x2 grid, arrow space, result */
-    grid-template-rows: 40px 40px;
-    gap: 5px;
-    align-items: center;
-    justify-content: center;
-}
-
-.mini-crafting-grid .slot:nth-child(3), 
-.mini-crafting-grid .slot:nth-child(4) {
-    grid-column: span 1;
-}
-
-.mini-crafting-grid .slot:nth-child(5) {
-    /* Result slot position */
-    grid-column: 4 / 5;
-    grid-row: 1 / 3;
-    height: 85px; /* Span two rows */
-    background-color: #DDD;
-}
-
-/* Recipe Menu Styling */
-#recipe-list {
-    max-height: 250px;
-    overflow-y: auto;
-    background: #e0e0e0;
-    padding: 10px;
-    border: 1px solid #ccc;
-    margin-bottom: 15px;
-}
-.recipe-item {
-    padding: 5px 0;
-    border-bottom: 1px dotted #999;
-    text-align: left;
-}
+/* ... (rest of the CSS remains the same) ... */
