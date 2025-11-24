@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2D Mine Clone</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -10,12 +8,6 @@
     <canvas id="gameCanvas"></canvas>
 
     <div id="ui-container">
-        <div id="interaction-prompt"></div>
-
-        <div id="mining-progress" class="hidden">
-            <div id="mining-bar"></div>
-        </div>
-
         <div id="title-menu" class="screen">
             <h2>2D Mine Clone</h2>
 
@@ -25,64 +17,17 @@
                 <div id="model-preview" style="width:32px; height:64px; background-color: white; margin: 10px auto;"></div>
             </div>
             
-            <button onclick="GAME.startGame(document.getElementById('seedInput').value || '2405')">Start New World</button><br><br>
+            <button onclick="GAME.startGame(document.getElementById('seedInput').value || 'random_seed')">Start New World</button><br><br>
+            
             <input type="text" id="seedInput" placeholder="World Seed (e.g., 12345)" value="2405"><br><br>
-            <button onclick="GAME.openRecipesMenu()">View Recipes</button>
+            
+            <button onclick="GAME.openRecipesMenu()">View Recipes</button><br><br>
+            
+            <button onclick="alert('Settings not implemented yet')">Settings</button>
         </div>
 
-        <div id="recipes-menu" class="interface hidden">
-            <h3>Crafting Recipes</h3>
-            <div id="recipe-list">
-                </div>
-            <button onclick="GAME.openTitleMenu()">Back to Menu</button>
         </div>
 
-        <div id="inventory-ui" class="interface hidden large-interface">
-            <h3 class="inventory-title">Inventory</h3>
-            <div class="inventory-content-grid">
-                
-                <div class="inventory-sidebar">
-                    <h4>Character</h4>
-                    <div class="player-view">
-                        <div class="armor-slots">
-                            <div class="slot" data-slot="HELMET"></div>
-                            <div class="slot" data-slot="CHESTPLATE"></div>
-                            <div class="slot" data-slot="LEGGINGS"></div>
-                            <div class="slot" data-slot="BOOTS"></div>
-                        </div>
-                        <div id="inventory-player-model"></div>
-                    </div>
-                    
-                    <h4>Crafting (2x2)</h4>
-                    <div class="mini-crafting-grid">
-                        <div class="slot" data-craft="1"></div>
-                        <div class="slot" data-craft="2"></div>
-                        <div class="slot" data-craft="3"></div>
-                        <div class="slot" data-craft="4"></div>
-                        <div class="slot result" data-craft="result"></div>
-                    </div>
-                </div>
-
-                <div class="main-inventory-area">
-                    <h4>Main Inventory</h4>
-                    <div id="full-inventory-grid" class="item-grid">
-                        </div>
-                    <h4>Hotbar</h4>
-                    <div id="hotbar-grid" class="item-grid">
-                        </div>
-                </div>
-
-            </div>
-            <button onclick="GAME.closeInterfaces()">Close (Q)</button>
-        </div>
-
-        <div id="crafting-ui" class="interface hidden">
-            <h3>Crafting Table (3x3)</h3>
-            <p>3x3 Crafting Logic not yet fully implemented.</p>
-            <button onclick="GAME.closeInterfaces()">Close (E)</button>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
+    <script src="script.js"></script> 
 </body>
 </html>
