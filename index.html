@@ -1,33 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>2D Mine Clone</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <canvas id="gameCanvas"></canvas>
+<div id="title-menu" class="screen">
+    <h2>2D Mine Clone</h2>
 
-    <div id="ui-container">
-        <div id="title-menu" class="screen">
-            <h2>2D Mine Clone</h2>
+    <div id="model-selection">
+        <label for="playerModel">Player Model:</label>
+        <select id="playerModel" onchange="GAME.updateModelPreview()"></select>
+        <div id="model-preview" style="width:32px; height:64px; background-color: white; margin: 10px auto;"></div>
+    </div>
+    
+    <input type="text" id="worldNameInput" placeholder="World Name (e.g., My World)" value="World 1"><br><br>
+    
+    <button onclick="GAME.startGame(document.getElementById('seedInput').value || 'random_seed', document.getElementById('worldNameInput').value)">Start New World</button><br><br>
+    
+    <input type="text" id="seedInput" placeholder="World Seed (e.g., 12345)" value="2405"><br><br>
+    
+    <button onclick="GAME.openRecipesMenu()">View Recipes</button><br><br>
+    
+    <button onclick="GAME.openSettingsMenu()">Settings</button>
+</div>
 
-            <div id="model-selection">
-                <label for="playerModel">Player Model:</label>
-                <select id="playerModel" onchange="GAME.updateModelPreview()"></select>
-                <div id="model-preview" style="width:32px; height:64px; background-color: white; margin: 10px auto;"></div>
-            </div>
-            
-            <button onclick="GAME.startGame(document.getElementById('seedInput').value || 'random_seed')">Start New World</button><br><br>
-            
-            <input type="text" id="seedInput" placeholder="World Seed (e.g., 12345)" value="2405"><br><br>
-            
-            <button onclick="GAME.openRecipesMenu()">View Recipes</button><br><br>
-            
-            <button onclick="alert('Settings not implemented yet')">Settings</button>
+<div id="settings-menu" class="interface hidden">
+    <h3>Game Settings</h3>
+    <div id="settings-list">
+        <div class="setting-item">
+            <label for="volumeSlider">Volume:</label>
+            <input type="range" id="volumeSlider" min="0" max="100" value="50" onchange="GAME.setSetting('volume', this.value)">
+            <span id="volumeValue">50%</span>
         </div>
-
+        <div class="setting-item">
+            <label for="difficultySelect">Difficulty:</label>
+            <select id="difficultySelect" onchange="GAME.setSetting('difficulty', this.value)">
+                <option value="Peaceful">Peaceful</option>
+                <option value="Easy">Easy</option>
+                <option value="Normal" selected>Normal</option>
+                <option value="Hard">Hard</option>
+            </select>
         </div>
-
-    <script src="script.js"></script> 
-</body>
-</html>
+        <div class="setting-item">
+            <label for="fullscreenToggle">Fullscreen:</label>
+            <input type="checkbox" id="fullscreenToggle" onclick="GAME.toggleFullscreen(this.checked)">
+        </div>
+    </div>
+    <button onclick="GAME.openTitleMenu()">Back to Menu</button>
+</div>
