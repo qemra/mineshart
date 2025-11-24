@@ -1,52 +1,21 @@
-/* style.css */
+/* style.css (Partial Update) */
 
-body {
-    margin: 0;
-    overflow: hidden;
-    background-color: #1a1a1a;
-    display: flex; /* Use flexbox to center content */
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    font-family: Arial, sans-serif;
-    color: #333;
-}
+/* ... (Existing interface styles) ... */
 
-#gameCanvas {
-    /* ... existing canvas styles ... */
-    display: block;
-    border: 4px solid #444;
-    background-color: #ADD8E6; 
-}
-
-#ui-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-}
-
-.screen, .interface {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* Crucial for centering */
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-    pointer-events: all;
-}
-
-/* Title Menu Styling */
-#title-menu {
-    width: 400px;
-    background: rgba(0, 0, 0, 0.9);
-    color: white;
+#settings-menu {
+    width: 350px;
+    background: #E0E0E0;
+    border: 5px solid #666;
     text-align: center;
-    border: 2px solid #555;
-    /* Ensure only the menu is visible at the start */
-    z-index: 1000; 
 }
-/* ... (rest of the CSS remains the same) ... */
+
+.setting-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px dotted #AAA;
+}
+.setting-item:last-child {
+    border-bottom: none;
+}
