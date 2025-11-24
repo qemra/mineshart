@@ -12,9 +12,21 @@
     <div id="ui-container">
         <div id="interaction-prompt"></div>
 
+        <div id="mining-progress" class="hidden">
+            <div id="mining-bar"></div>
+        </div>
+
         <div id="title-menu" class="screen">
             <h2>2D Mine Clone</h2>
-            <button onclick="GAME.startGame('default_seed')">Start New World</button><br><br>
+
+            <div id="model-selection">
+                <label for="playerModel">Player Model:</label>
+                <select id="playerModel" onchange="GAME.updateModelPreview()">
+                    </select>
+                <div id="model-preview" style="width:32px; height:64px; background-color: white; margin: 10px auto;"></div>
+            </div>
+            
+            <button onclick="GAME.startGame(document.getElementById('seedInput').value || '2405')">Start New World</button><br><br>
             <input type="text" id="seedInput" placeholder="World Seed (e.g., 12345)" value="2405"><br><br>
             <button onclick="alert('Settings not implemented yet')">Settings</button>
         </div>
@@ -22,11 +34,6 @@
         <div id="crafting-ui" class="interface hidden">
             <h3>Crafting Table (3x3)</h3>
             <p>2x2 Crafting Not Supported in this simple UI yet.</p>
-            <button onclick="GAME.closeInterfaces()">Close (E)</button>
-        </div>
-
-        <div id="furnace-ui" class="interface hidden">
-            <h3>Furnace (Smelting)</h3>
             <button onclick="GAME.closeInterfaces()">Close (E)</button>
         </div>
     </div>
